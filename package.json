@@ -1,0 +1,18 @@
+{
+  "name": "koa-ts-temp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json -w",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/koa": "^2.11.6",
+    "koa": "^2.13.0",
+    "nodemon": "^2.0.6"
+  }
+}
