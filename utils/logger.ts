@@ -1,11 +1,11 @@
-const universalLogger = (message: string): string => {
+const universalLogger = (type: string, message: string): string => {
   return ``
 }
 
 /**
  * logger
  */
-export default class Logger {
+export default class Log {
 
   /**
    * universal log
@@ -29,5 +29,13 @@ export default class Logger {
    */
   debug(msg: string) {
 
+  }
+
+  /**
+   * custom log
+   * @param msg
+   */
+  custom(msg: string) {
+    console.log(`[CUSTOM] ${msg}`);
   }
 }
