@@ -2,7 +2,7 @@ import Koa, { Context } from 'koa';
 import bodyParser from 'koa-bodyparser';
 import KoaRouter from 'koa-router';
 import Log from './utils/logger.js';
-import { handleSuccess, handleError, HandleSuccess } from './utils/handle';
+import { handleSuccess, handleError, HandleSuccess } from './utils/handle.js';
 import logger from './middleware/logger.js';
 import config from './project.config.js';
 const { appName, port } = config;
