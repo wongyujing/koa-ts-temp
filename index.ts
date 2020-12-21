@@ -1,15 +1,19 @@
-import Koa, { Context } from 'koa';
+import Koa, { Middleware } from 'koa';
 import bodyParser from 'koa-bodyparser';
-import KoaRouter from 'koa-router';
+import KoaRouter, { IRouterParamContext } from 'koa-router';
 import Log from './utils/logger.js';
 import { handleSuccess, handleError, HandleSuccess } from './utils/handle.js';
 import logger from './middleware/logger.js';
 import config from './project.config.js';
 const { appName, port } = config;
 
+interface DuoMiddlewareContext extends Middleware {
+  handleSuccess: HandleSuccess;
+}
+
 const app = new Koa();
 
-const router = new KoaRouter();
+const router = new KoaRouter<any, DuoMiddlewareContext>();
 
 // @example: ctx.logger.info('hello')
 app.context.logger = new Log();
@@ -25,7 +29,7 @@ app.use(bodyParser());
 app.use(logger);
 
 router.get('/hello', (ctx, next) => {
-  // console.log(ctx.handleSuccess({}));
+  console.log(ctx.handleSuccess({}));
 })
 
 app.use(router.routes());
