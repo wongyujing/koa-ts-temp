@@ -15,6 +15,12 @@ export function handleSuccess<T>(this: Context, data?: T) {
   }
 }
 
+export type HandleError = <T, U extends keyof CodeType>(
+  this: Context,
+  codeNumber: U,
+  message?: string,
+) => void;
+
 export function handleError<T, U extends keyof CodeType>(
   this: Context,
   codeNumber: U,

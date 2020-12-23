@@ -1,14 +1,20 @@
 import Koa, { Middleware } from 'koa';
 import bodyParser from 'koa-bodyparser';
-import KoaRouter, { IRouterParamContext } from 'koa-router';
+import KoaRouter from 'koa-router';
 import Log from './utils/logger.js';
-import { handleSuccess, handleError, HandleSuccess } from './utils/handle.js';
+import {
+  handleSuccess,
+  handleError,
+  HandleSuccess,
+  HandleError,
+} from './utils/handle.js';
 import logger from './middleware/logger.js';
 import config from './project.config.js';
 const { appName, port } = config;
 
 interface DuoMiddlewareContext extends Middleware {
   handleSuccess: HandleSuccess;
+  handleError: HandleError;
 }
 
 const app = new Koa();
