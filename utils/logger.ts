@@ -3,12 +3,12 @@ const universalLogger = (type: string, message: string): string => {
 }
 
 /**
- * logger
+ * @description logger
  */
 export default class Log {
 
   /**
-   * universal log
+   * @description universal log
    * @param msg
    */
   info(msg: string) {
@@ -16,7 +16,7 @@ export default class Log {
   }
 
   /**
-   * error log
+   * @description error log
    * @param msg
    */
   error(msg: string) {
@@ -24,7 +24,7 @@ export default class Log {
   }
 
   /**
-   * debug log
+   * @description debug log
    * @param msg
    */
   debug(msg: string) {
@@ -32,7 +32,7 @@ export default class Log {
   }
 
   /**
-   * custom log
+   * @description custom log
    * @param msg
    */
   custom(msg: string) {
