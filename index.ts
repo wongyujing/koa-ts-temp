@@ -8,6 +8,7 @@ import {
   HandleSuccess,
   HandleError,
 } from './utils/handle.js';
+import { defineRouter } from './utils/buildRouter.js';
 import logger from './middleware/logger.js';
 import config from './project.config.js';
 const { appName, port } = config;
@@ -34,9 +35,9 @@ app.use(bodyParser());
 
 app.use(logger);
 
-router.get('/hello', (ctx, next) => {
-  console.log(ctx.handleSuccess({}));
-})
+router.get('/test', defineRouter({ name: { required: true, type: 'number' } }, (ctx) => {
+  ctx.body = 'test';
+}));
 
 app.use(router.routes());
 app.use(router.allowedMethods());
